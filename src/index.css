@@ -7,10 +7,15 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+.container {
+  max-width: 1700px;
+  margin: 0 auto;
+}
+
 .nav-active {
   transition: opacity .5s ease;
   position: absolute;
-  bottom: -16px;
+  bottom: -10px;
   height: 3px;
   left: calc(50% - 20px);
   width: 40px;

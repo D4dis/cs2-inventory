@@ -1,11 +1,20 @@
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './sections/Hero';
+import Home from './sections/Home';
+import Inventory from './sections/Inventory';
+import Tracker from './sections/Tracker';
 
 const App = () => {
   return (
     <main className='bg-zinc-900 min-h-screen'>
-      <Navbar />
-      <Hero />
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path='/inventory' element={<Inventory />} />
+          <Route path='/tracker' element={<Tracker />} />
+        </Routes>
+      </Router>
     </main>
   )
 }
