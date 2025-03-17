@@ -15,7 +15,7 @@ body {
 .nav-active {
   transition: opacity .5s ease;
   position: absolute;
-  bottom: -10px;
+  bottom: -12px;
   height: 3px;
   left: calc(50% - 20px);
   width: 40px;
