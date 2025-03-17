@@ -7,6 +7,16 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+:root {
+  --rarity-consumer: rgb(132, 123, 110);
+  --rarity-industrial: rgb(94, 152, 217);
+  --rarity-mil-spec: rgb(63, 97, 255);
+  --rarity-restricted: rgb(49, 60, 255);
+  --rarity-classified: rgb(211, 44, 230);
+  --rarity-covert: rgb(235, 75, 75);
+  --rarity-contraband: rgb(228, 174, 57);
+}
+
 .container {
   max-width: 1700px;
   margin: 0 auto;

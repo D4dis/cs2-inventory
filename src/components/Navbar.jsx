@@ -6,7 +6,7 @@ const Navbar = () => {
   const [isConnected, setIsConnected] = useState(false);
 
   return (
-    <header className='fixed container mx-auto py-4 px-4 top-0 left-0 right-0'>
+    <header className='fixed container mx-auto py-4 px-4 top-0 left-0 right-0 z-100'>
       <div className='flex justify-between items-center w-full h-16 px-4 bg-zinc-700/30 backdrop-blur-md text-white shadow-md rounded-lg duration-300 overflow-hidden'>
         <div className='flex items-center gap-3'>
           <NavLink to='/' className='mr-5'>
