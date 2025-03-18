@@ -7,6 +7,27 @@ const Inventory = () => {
   const offcanvasRef = useRef(null);
   const searchButtonRef = useRef(null);
 
+  const colorRarity = (rarity) => {
+    switch (rarity) {
+      case "Consumer Grade":
+        return '(--rarity-consumer)';
+      case "Industrial Grade":
+        return '(--rarity-industrial)';
+      case "Mil-Spec Grade":
+        return '(--rarity-mil-spec)';
+      case "Restricted":
+        return '(--rarity-restricted)';
+      case "Classified":
+        return '(--rarity-classified)';
+      case "Covert":
+        return '(--rarity-covert)';
+      case "Contraband":
+        return '(--rarity-contraband)';
+      default:
+        return '(--rarity-covert)';
+    }
+  }
+
   useEffect(() => {
     const fetchInventory = async () => {
       try {
@@ -21,6 +42,10 @@ const Inventory = () => {
 
     fetchInventory();
   }, []);
+
+  inventory && inventory.descriptions.map((item) => {
+    console.log(colorRarity(item.tags[4].localized_tag_name));
+  });
 
   const handleClickOutside = (event) => {
     if (offcanvasRef.current && !offcanvasRef.current.contains(event.target) && !searchButtonRef.current.contains(event.target)) {
@@ -64,12 +89,15 @@ const Inventory = () => {
                   src={`https://community.cloudflare.steamstatic.com/economy/image/${item.icon_url}`}
                   alt={item.name + ' icon'}
                 />
-                <div className={`bg-linear-to-t from-(--rarity-restricted)/40 to-transparent absolute top-0 left-0 w-full h-full`}></div>
+                <div
+                  className={"absolute top-0 left-0 w-full h-full"}
+                  style={{ backgroundImage: `linear-gradient(to top, var${colorRarity(item.tags[4].localized_tag_name)}, transparent)` }}
+                ></div>
               </div>
               <div className="p-5">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">{item.name}</h5>
                 <p className="mb-3 font-normal text-gray-400">
-                  {item.tags[5]?.localized_tag_name}
+                  {item.descriptions[0]?.value.slice(10)}
                 </p>
               </div>
             </div>

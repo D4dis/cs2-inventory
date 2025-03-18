@@ -7,7 +7,7 @@ app.use(cors());
 
 app.get('/api/inventory', async (req, res) => {
   try {
-    const response = await fetch('https://steamcommunity.com/inventory/76561199038461813/730/2');
+    const response = await fetch('https://steamcommunity.com/inventory/76561198155895913/730/2');
     const data = await response.json();
     res.json(data);
   } catch (error) {
