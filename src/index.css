@@ -8,13 +8,13 @@ body {
 }
 
 :root {
-  --rarity-consumer: rgba(132, 123, 110, 30%);
-  --rarity-industrial: rgba(94, 152, 217, 30%);
-  --rarity-mil-spec: rgba(63, 97, 255, 30%);
-  --rarity-restricted: rgba(49, 60, 255, 30%);
-  --rarity-classified: rgba(211, 44, 230, 30%);
-  --rarity-covert: rgba(235, 75, 75, 30%);
-  --rarity-contraband: rgba(228, 174, 57, 30%);
+  --D32CE6: #D32CE650;
+  --EB4B4B: #EB4B4B50;
+  --B0C3D9: #B0C3D950;
+  --8847FF: #8847FF50;
+  --4B69FF: #4B69FF50;
+  --5E98D9: #5E98D950;
+  --DED6CC: #DED6CC50;
 }
 
 .container {

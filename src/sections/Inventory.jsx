@@ -7,27 +7,6 @@ const Inventory = () => {
   const offcanvasRef = useRef(null);
   const searchButtonRef = useRef(null);
 
-  const colorRarity = (rarity) => {
-    switch (rarity) {
-      case "Consumer Grade":
-        return '(--rarity-consumer)';
-      case "Industrial Grade":
-        return '(--rarity-industrial)';
-      case "Mil-Spec Grade":
-        return '(--rarity-mil-spec)';
-      case "Restricted":
-        return '(--rarity-restricted)';
-      case "Classified":
-        return '(--rarity-classified)';
-      case "Covert":
-        return '(--rarity-covert)';
-      case "Contraband":
-        return '(--rarity-contraband)';
-      default:
-        return '(--rarity-covert)';
-    }
-  }
-
   useEffect(() => {
     const fetchInventory = async () => {
       try {
@@ -42,10 +21,6 @@ const Inventory = () => {
 
     fetchInventory();
   }, []);
-
-  inventory && inventory.descriptions.map((item) => {
-    console.log(colorRarity(item.tags[4].localized_tag_name));
-  });
 
   const handleClickOutside = (event) => {
     if (offcanvasRef.current && !offcanvasRef.current.contains(event.target) && !searchButtonRef.current.contains(event.target)) {
@@ -76,23 +51,23 @@ const Inventory = () => {
           <Search />
         </div>
         <div className="w-full lg:w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {inventory && inventory.descriptions.map((item) => (
-            <div key={item.classid} className="border rounded-lg shadow-sm bg-gray-800 border-gray-700 cursor-pointer">
+          {inventory && inventory.map((item) => (
+            <div key={item.assetid} className="border rounded-lg shadow-sm bg-gray-800 border-gray-700 cursor-pointer">
               <div className='relative overflow-hidden'>
                 <img
                   className="rounded-t-lg w-50 mx-auto"
-                  src={`https://community.cloudflare.steamstatic.com/economy/image/${item.icon_url}`}
-                  alt={item.name + ' icon'}
+                  src={`${item.image}`}
+                  alt={item.marketname + ' icon'}
                 />
                 <div
                   className={"absolute top-0 left-0 w-full h-full"}
-                  style={{ backgroundImage: `linear-gradient(to top, var${item.tags[4].localized_tag_name ? colorRarity(item.tags[4].localized_tag_name) : '(--rarity-covert)'}, transparent)` }}
+                  style={{ backgroundImage: `linear-gradient(to top, var(--${item.color.toUpperCase()}), transparent)` }}
                 ></div>
               </div>
               <div className="p-5">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">{item.name}</h5>
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">{item.marketname}</h5>
                 <p className="mb-3 font-normal text-gray-400">
-                  {item.descriptions[0]?.value.slice(10)}
+                  {item.infotypehintjgdcahfebihl}
                 </p>
               </div>
             </div>
