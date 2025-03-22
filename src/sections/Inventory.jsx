@@ -65,14 +65,14 @@ const Inventory = () => {
     <section className='container mx-auto flex flex-col items-center justify-center pt-30 pb-10 px-4'>
       <h1 className='text-4xl font-bold text-white mb-10'>Blabla's Inventory</h1>
 
-      <div class="text-center">
-        <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" type="button" data-drawer-target="drawer-example" data-drawer-show="drawer-example" aria-controls="drawer-example">
+      <div className="text-center">
+        <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" type="button" data-drawer-target="drawer-example" data-drawer-show="drawer-example" aria-controls="drawer-example">
           Show drawer
         </button>
       </div>
 
       <div className='flex w-full gap-6'>
-        <div className={`py-30 w-1/4 fixed top-0 left-0 z-40 h-screen overflow-y-auto transition-transform -translate-x-full `} id="drawer-example" tabindex="-1" aria-labelledby="drawer-label">
+        <div className={`py-30 w-1/4 fixed top-0 left-0 z-40 h-screen overflow-y-auto transition-transform -translate-x-full `} id="drawer-example" tabIndex="-1" aria-labelledby="drawer-label">
           <Search />
         </div>
         <div className="w-full lg:w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -86,7 +86,7 @@ const Inventory = () => {
                 />
                 <div
                   className={"absolute top-0 left-0 w-full h-full"}
-                  style={{ backgroundImage: `linear-gradient(to top, var${colorRarity(item.tags[4].localized_tag_name)}, transparent)` }}
+                  style={{ backgroundImage: `linear-gradient(to top, var${item.tags[4].localized_tag_name ? colorRarity(item.tags[4].localized_tag_name) : '(--rarity-covert)'}, transparent)` }}
                 ></div>
               </div>
               <div className="p-5">
@@ -97,9 +97,9 @@ const Inventory = () => {
               </div>
             </div>
           ))}
-        </div>
       </div>
-    </section>
+    </div>
+    </section >
   )
 }
 

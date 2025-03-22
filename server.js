@@ -3,11 +3,11 @@ import fetch from 'node-fetch';
 import cors from 'cors';
 
 const app = express();
-app.use(cors()); 
+app.use(cors());
 
 app.get('/api/inventory', async (req, res) => {
   try {
-    const response = await fetch('https://steamcommunity.com/inventory/76561198155895913/730/2');
+    const response = await fetch('https://www.steamwebapi.com/steam/api/inventory?key=FIA52G9CY7S062ZA&steam_id=76561198032730078');
     const data = await response.json();
     res.json(data);
   } catch (error) {
