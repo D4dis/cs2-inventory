@@ -1,10 +1,6 @@
-import { Accordion } from "flowbite-react";
-import { useEffect } from "react";
+import Accordion from "./Accordion";
 
 const Search = ({ isLaptop }) => {
-  useEffect(() => {
-    console.log("Flowbite :", window.flowbite);
-  }, []);
 
   return (
     <div className='sticky top-0 w-full bg-gray-500/30 rounded-lg px-6 py-4 text-white shadow-md duration-300 overflow-hidden flex flex-col items-center'>
@@ -26,31 +22,39 @@ const Search = ({ isLaptop }) => {
       </div>
 
       {/* Special */}
-
-      <div className='w-full flex flex-col items-center justify-center mt-4 gap-4 transition-all duration-300' id="accordion-collapse" data-accordion="collapse">
-        <button type="button" className="flex items-center justify-between w-full py-5 font-medium rtl:text-right bg-transparent text-white hover:text-blue-800 transition-all gap-3 cursor-pointer" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
-          <span>Spécial</span>
-          <svg data-accordion-icon className="w-3 h-3 shrink-0" aria-hidden="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5 5 1 1 5" />
-          </svg>
-        </button>
-        <div className='w-full flex justify-around transition-all duration-300' id="accordion-collapse-body-1" aria-labelledby="accordion-collapse-heading-1">
-          <div className="flex items-center" >
-            <input id="StatTrack" type="checkbox" name='StatTrack' value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 hover:bg-gray-200 focus:ring-blue-500 cursor-pointer" />
+      <Accordion title={"Special"}>
+        <div className='w-full flex justify-around transition-all duration-300 mb-3'>
+          <div className="flex items-center">
+            <input id="StatTrack" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 hover:bg-gray-200 focus:ring-blue-500 cursor-pointer" />
             <label htmlFor="StatTrack" className="ms-2 text-sm font-semibold text-orange-500 cursor-pointer">StatTrack&trade;</label>
           </div>
           <div className="flex items-center">
-            <input id="Souvenir" type="checkbox" name='Souvenir' value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 cursor-pointer" />
+            <input id="Souvenir" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 cursor-pointer" />
             <label htmlFor="Souvenir" className="ms-2 text-sm font-semibold text-yellow-500 cursor-pointer">Souvenir</label>
           </div>
           <div className="flex items-center">
-            <input id="Normal" type="checkbox" value="" name='Normal' className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 cursor-pointer" />
+            <input id="Normal" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 cursor-pointer" />
             <label htmlFor="Normal" className="ms-2 text-sm font-semibold text-white cursor-pointer">Normal</label>
           </div>
         </div>
-        <hr className="w-full h-px my-2 bg-gray-500 border-0" />
-      </div>
+      </Accordion>
+      <hr className="w-full h-px my-2 bg-gray-500/50 border-0" />
+      {/* Rarity */}
+      <Accordion title={"Rarity"}>
+        <select id="rarity" class="w-full bg-zinc-800 text-white rounded-lg p-2 mb-3 focus:border-blue-500 hover:bg-zinc-600 focus:bg-zinc-600 border-b-1 border-transparent transition-[border] duration-300 outline-0 cursor-pointer">
+          <option selected>Any</option>
+          <option value="consumer">Consumer</option>
+          <option value="industrail">Industrial</option>
+          <option value="mil-spec">Mil-Spec</option>
+          <option value="restricted">Restricted</option>
+          <option value="classified">Classified</option>
+          <option value="covert">Covert</option>
+          <option value="contraband">Contraband</option>
+        </select>
+      </Accordion>
+      <hr className="w-full h-px my-2 bg-gray-500/50 border-0" />
     </div>
+
   )
 }
 
