@@ -45,15 +45,15 @@ const Inventory = () => {
 
       <div className='flex w-full h-full gap-6'>
         <div className={`w-1/4 z-40 h-full`} id="drawer-example" tabIndex="-1" aria-labelledby="drawer-label">
-          <Search isTablet={isLaptop} />
+          <Search isLaptop={isLaptop} />
         </div>
         <div className="w-full lg:w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {inventory && inventory.map((item) => (
-            <Card item={item} />
+            <Card key={item.assetid} item={item} />
           ))}
         </div>
       </div>
-    </section >
+    </section>
   )
 }
 

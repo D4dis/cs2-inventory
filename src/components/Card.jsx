@@ -2,7 +2,7 @@ import React from 'react'
 
 const Card = ({ item }) => {
   return (
-    <div key={item.assetid} className="h-full border-2 border-transparent rounded-lg shadow-sm bg-gray-800 hover:translate-y-[-15px] hover:border-gray-700 transition-all duration-300 cursor-pointer">
+    <div className="h-full border-2 border-transparent rounded-lg shadow-sm bg-gray-800 hover:translate-y-[-15px] hover:border-gray-700 transition-all duration-300 cursor-pointer">
       <div className='relative overflow-hidden'>
         <img
           className="rounded-t-lg w-50 mx-auto"
@@ -13,6 +13,7 @@ const Card = ({ item }) => {
           className={"absolute top-0 left-0 w-full h-full"}
           style={{ backgroundImage: `linear-gradient(to top, var(--${item.color.toUpperCase()}50), transparent)` }}
         ></div>
+        <div className={`absolute -bottom-0.5 w-full h-[5px] z-40`} style={{ background: `var(--${item.color.toUpperCase()})` }}></div>
       </div>
       <div className="p-5">
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">{item.marketname}</h5>
