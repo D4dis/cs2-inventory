@@ -21,7 +21,7 @@ const Card = ({ item }) => {
         <div className={`absolute -bottom-0.5 w-full h-[5px] z-40`} style={{ background: `var(--${item.color.toUpperCase()})` }}></div>
       </div>
       <div className="p-5">
-        <h5 className={`mb-2 text-2xl font-bold tracking-tight ${getItemClass(item.quality)}`}>{item.marketname.slice(0, 32) + '...'}</h5>
+        <h5 className={`mb-2 text-2xl font-bold tracking-tight ${getItemClass(item.quality)}`}>{item.marketname.slice(0, 32).replace('StatTrak™', '') + '...' }</h5>
         <p className="mb-3 font-normal text-gray-400">
           {item.descriptions.find(desc => desc.name === 'description')?.value.slice(0, 100) + '...'}
         </p>
