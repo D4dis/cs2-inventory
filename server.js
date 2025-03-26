@@ -1,13 +1,15 @@
 import express from 'express';
 import fetch from 'node-fetch';
 import cors from 'cors';
+import dotenv from "dotenv";
+dotenv.config({ path: '.env.local' });
 
 const app = express();
 app.use(cors());
 
 app.get('/api/inventory', async (req, res) => {
   try {
-    const response = await fetch('https://www.steamwebapi.com/steam/api/inventory?key=FIA52G9CY7S062ZA&steam_id=76561198032730078');
+    const response = await fetch(`https://www.steamwebapi.com/steam/api/inventory?key=${process.env.VITE_APP_API_KEY}&steam_id=${process.env.VITE_APP_STEAM_ID}`);
     const data = await response.json();
     res.json(data);
   } catch (error) {
