@@ -23,12 +23,11 @@ const Search = ({ isLaptop }) => {
 
       {/* Wear */}
       <Accordion title={"Wear"}>
-        <input className="mb-3" type="range" name="" id="" max={1} min={0} step={0.01} value={0.5} />
-        <hr className="w-full h-px my-2 bg-gray-500/50 border-0" />
       </Accordion>
+      <hr className="w-full h-px mb-2 bg-gray-500/50 border-0 mt-5" />
       {/* Special */}
       <Accordion title={"Special"}>
-        <div className='w-full flex justify-around transition-all duration-300 mb-3'>
+        <div className='w-full flex justify-around transition-all duration-300'>
           <div className="flex items-center">
             <input id="StatTrack" type="checkbox" className="w-4 h-4 text-blue-600 border-gray-300 hover:bg-gray-200 focus:ring-blue-500 cursor-pointer" />
             <label htmlFor="StatTrack" className="ms-2 text-sm font-semibold text-[#ff782b] cursor-pointer">StatTrack&trade;</label>
@@ -43,10 +42,10 @@ const Search = ({ isLaptop }) => {
           </div>
         </div>
       </Accordion>
-      <hr className="w-full h-px my-2 bg-gray-500/50 border-0" />
+      <hr className="w-full h-px mb-2 bg-gray-500/50 border-0 mt-5" />
       {/* Rarity */}
       <Accordion title={"Rarity"}>
-        <select id="rarity" className="w-full bg-zinc-800 text-white rounded-lg p-2 mb-3 focus:border-blue-500 hover:bg-zinc-600 focus:bg-zinc-600 border-b-1 border-transparent transition-[border] duration-300 outline-0 cursor-pointer">
+        <select id="rarity" className="w-full bg-zinc-800 text-white rounded-lg p-2 focus:border-blue-500 hover:bg-zinc-600 focus:bg-zinc-600 border-b-1 border-transparent transition-[border] duration-300 outline-0 cursor-pointer">
           <option selected>Any</option>
           <option value="consumer">Consumer</option>
           <option value="industrail">Industrial</option>
@@ -57,7 +56,7 @@ const Search = ({ isLaptop }) => {
           <option value="contraband">Contraband</option>
         </select>
       </Accordion>
-      <hr className="w-full h-px my-2 bg-gray-500/50 border-0" />
+      <hr className="w-full h-px mb-2 bg-gray-500/50 border-0 mt-5" />
     </div>
 
   )
