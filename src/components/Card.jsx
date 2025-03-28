@@ -42,6 +42,7 @@ const Card = ({ item }) => {
         <p className="mb-3 font-normal text-white">
           <i className="mr-3 fa-brands fa-steam-symbol"></i>{item.pricereal?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + ' €'}
         </p>
+        <a href={item.inspectlink}></a>
       </div>
     </div >
   )

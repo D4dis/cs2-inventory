@@ -8,11 +8,11 @@ const Accordion = ({ title, children }) => {
     <div className="w-full flex flex-col items-center justify-center mt-4 gap-4">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-full py-3 font-medium text-white hover:text-blue-800 transition-all gap-3 cursor-pointer bg-transparent hover:bg-transparent"
+        className="flex items-center justify-between w-full py-3 font-semibold text-white text-sm hover:text-blue-800 transition-all gap-3 cursor-pointer bg-transparent hover:bg-transparent"
       >
         {title}
         <svg
-          className={`w-6 h-6 transform transition-transform duration-300 ${isOpen ? "rotate-180" : "rotate-0"}`}
+          className={`w-5 h-5 transform transition-transform duration-300 ${isOpen ? "rotate-180" : "rotate-0"}`}
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -21,7 +21,7 @@ const Accordion = ({ title, children }) => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
         </svg>
       </button>
-      <div className={`w-full transition-all duration-300 overflow-hidden ${isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}>
+      <div className={`w-full transition-all duration-300 overflow-hidden ${isOpen ? "max-h-40" : "max-h-0 opacity-0 -m-3"}`}>
         {children}
       </div>
     </div>
