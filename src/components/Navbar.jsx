@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import ak47white from '../assets/ak47white.svg';
+import LoginForm from './LoginForm';
 
 const Navbar = () => {
-  const [isConnected, setIsConnected] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
 
+  const handleClick = () => {
+    setShowLogin(!showLogin);
+  };
   return (
     <header className='fixed container mx-auto py-4 px-4 top-0 left-0 right-0 z-100'>
       <div className='flex justify-between items-center w-full h-16 px-4 bg-zinc-700/30 backdrop-blur-md text-white shadow-md rounded-lg duration-300 overflow-hidden'>
@@ -72,16 +76,13 @@ const Navbar = () => {
           </NavLink>
         </div>
         <div className='flex items-center gap-5'>
-          {isConnected ? (
-            <a href='#' className='text-black hover:text-gray-300'>
-              <i className='fas fa-user'></i>
-            </a>
-          ) : (<a href='' className='px-4 py-2 bg-blue-700 hover:bg-blue-900 text-white rounded-lg transition-all duration-300 shadow-sm cursor-pointer'>
+          <button onClick={handleClick} className="px-4 py-2 bg-blue-700 hover:bg-blue-900 text-white rounded-lg transition-all duration-300 shadow-sm cursor-pointer">
             Log in
             <i className="ml-3 fa-brands fa-steam-symbol"></i>
-          </a>)}
+          </button>
         </div>
       </div>
+      {showLogin && <LoginForm />}
     </header>
   )
 }
