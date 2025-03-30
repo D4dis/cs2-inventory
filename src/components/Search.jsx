@@ -46,7 +46,7 @@ const Search = ({ isLaptop }) => {
       {/* Rarity */}
       <Accordion title={"Rarity"}>
         <select id="rarity" className="w-full bg-zinc-800 text-white rounded-lg p-2 focus:border-blue-500 hover:bg-zinc-600 focus:bg-zinc-600 border-b-1 border-transparent transition-[border] duration-300 outline-0 cursor-pointer">
-          <option selected>Any</option>
+          <option defaultValue={"any"}>Any</option>
           <option value="consumer">Consumer</option>
           <option value="industrail">Industrial</option>
           <option value="mil-spec">Mil-Spec</option>
