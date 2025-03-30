@@ -1,4 +1,6 @@
+import { parse } from 'dotenv';
 import React from 'react'
+import StickerGallery from './StickerGallery';
 
 const Card = ({ item }) => {
   const getItemClass = (quality) => {
@@ -8,24 +10,35 @@ const Card = ({ item }) => {
   };
 
   const wearFullWord = (tag1) => {
-    if (tag1 == "Agent") return `${item.tag6} Agent`;
-    if (tag1 == "Container") return `Base Grade ${item.tag2}`;
-    if (tag1 == "Sticker") return `${item.tag6} Sticker`;
-    if (tag1 == "Collectible") return `${item.tag6} Collectible`;
-    if (tag1 == "Music Kit") return `${item.tag6} Music Kit`;
+    if (tag1 == "Agent") return `${item.tag6 + ' ' + item.tag1}`;
+    if (tag1 == "Container") return `${item.tag6 + ' ' + item.tag1}`;
+    if (tag1 == "Sticker") return `${item.tag6 + ' ' + item.tag1}`;
+    if (tag1 == "Collectible") return `${item.tag6 + ' ' + item.tag1}`;
+    if (tag1 == "Music Kit") return `${item.tag6 + ' ' + item.tag1}`;
     if (tag1 == 'fn') return 'Factory New';
     if (tag1 == 'mw') return 'Minimal Wear';
     if (tag1 == 'ft') return 'Field Tested';
     if (tag1 == 'ww') return 'Well Worn';
     if (tag1 == 'bs') return 'Battle Scarred';
     return '';
-
   }
+
+  const parseStickers = (html) => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+    const images = doc.querySelectorAll("#sticker_info img");
+
+    return Array.from(images).map((img) => ({
+      src: img.src,
+      title: img.title,
+    }));
+  };
+
   return (
     <div className="h-full border-2 border-transparent rounded-lg shadow-sm bg-gray-800 hover:translate-y-[-15px] hover:border-gray-700 transition-all duration-300 cursor-pointer">
       <div className='relative overflow-hidden'>
         <img
-          className="relative rounded-t-lg w-50 mx-auto z-5"
+          className="relative rounded-t-lg w-50 mx-auto my-3 z-5"
           src={`${item.image}`}
           alt={item.marketname + ' icon'}
         />
@@ -44,10 +57,10 @@ const Card = ({ item }) => {
           <i className="mr-3 fa-brands fa-steam-symbol"></i>{item.pricereal?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + ' €'}
         </p>
         {item.inspectlink && <a href={item.inspectlink} className='text-white bg-gray-500/30 hover:bg-gray-300/30 px-3 py-1 rounded-xl' title='Inspect in game'><i className="fa-regular fa-eye"></i></a>}
-        {item.tag1 != "Agent" && item.descriptions
+        {item.descriptions
           .filter(description => description.name === "sticker_info")
           .map(description => (
-            <span key={description.value} dangerouslySetInnerHTML={{ __html: description.value }} />
+            <StickerGallery key={description.value} stickers={description.value} />
           ))}
 
 

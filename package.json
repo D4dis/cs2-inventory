@@ -9,6 +9,16 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "tailwind": {
+    "content": [
+      "./index.html",
+      "./src/**/*.{js,ts,jsx,tsx}"
+    ],
+    "theme": {
+      "extend": {}
+    },
+    "plugins": []
+  },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.14",
     "cors": "^2.8.5",
