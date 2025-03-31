@@ -46,6 +46,13 @@ const Card = ({ item }) => {
           className={"absolute top-0 left-0 w-full h-full"}
           style={{ backgroundImage: `linear-gradient(to top, var(--${item.color.toUpperCase()}50), transparent)` }}
         ></div>
+        <div className='absolute flex px-3 top-0 bot-0 left-0 w-full h-full z-30'>
+          {item.descriptions
+            .filter(description => description.name === "sticker_info")
+            .map(description => (
+              <StickerGallery key={description.value} stickers={description.value} />
+            ))}
+        </div>
         <div className={`absolute -bottom-0.5 w-full h-[5px] z-10`} style={{ background: `var(--${item.color.toUpperCase()})` }}></div>
       </div>
       <div className="p-5">
@@ -57,13 +64,6 @@ const Card = ({ item }) => {
           <i className="mr-3 fa-brands fa-steam-symbol"></i>{item.pricereal?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + ' €'}
         </p>
         {item.inspectlink && <a href={item.inspectlink} className='text-white bg-gray-500/30 hover:bg-gray-300/30 px-3 py-1 rounded-xl' title='Inspect in game'><i className="fa-regular fa-eye"></i></a>}
-        {item.descriptions
-          .filter(description => description.name === "sticker_info")
-          .map(description => (
-            <StickerGallery key={description.value} stickers={description.value} />
-          ))}
-
-
       </div>
     </div >
   )
