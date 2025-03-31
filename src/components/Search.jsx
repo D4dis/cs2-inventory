@@ -30,9 +30,8 @@ const Search = ({ isLaptop }) => {
       <Accordion title={"Special"}>
         <div className='w-full flex justify-around transition-all duration-300'>
           <div className="flex items-center">
-            {/* <input id="StatTrack" type="checkbox" className="w-4 h-4 text-blue-600 border-gray-300 hover:bg-gray-200 focus:ring-blue-500 cursor-pointer" />
-            <label htmlFor="StatTrack" className="ms-2 text-sm font-semibold text-[#ff782b] cursor-pointer">StatTrack&trade;</label> */}
-            <CustomCheckbox id={"StatTrack"} text={"StatTrack™"} />
+            <input id="StatTrack" type="checkbox" className="w-4 h-4 text-blue-600 border-gray-300 hover:bg-gray-200 focus:ring-blue-500 cursor-pointer" />
+            <label htmlFor="StatTrack" className="ms-2 text-sm font-semibold text-[#ff782b] cursor-pointer">StatTrack&trade;</label>
           </div>
           <div className="flex items-center">
             <input id="Souvenir" type="checkbox" className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 cursor-pointer" />
