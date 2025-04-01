@@ -35,7 +35,7 @@ const Card = ({ item }) => {
   };
 
   return (
-    <div className="h-full border-2 border-transparent rounded-lg shadow-sm bg-gray-800 hover:translate-y-[-15px] hover:border-gray-700 transition-all duration-300 cursor-pointer">
+    <div className="h-full border-2 border-transparent rounded-lg shadow-sm bg-gray-800 hover:translate-y-[-15px] hover:border-gray-700 transition-all duration-300">
       <div className='relative overflow-hidden'>
         <img
           className="relative rounded-t-lg w-50 mx-auto my-3 z-5"

@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Home from './sections/Home';
 import Inventory from './sections/Inventory';
 import Tracker from './sections/Tracker';
+import SearchUserInventory from './sections/SearchUserInventory';
 
 const App = () => {
   return (
@@ -11,7 +12,8 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path='/inventory' element={<Inventory />} />
+          <Route path='/searchInventory' element={<SearchUserInventory />} />
+          <Route path='/inventory/:steamId' element={<Inventory />} />
           <Route path='/tracker' element={<Tracker />} />
         </Routes>
       </Router>

@@ -12,7 +12,7 @@ const Navbar = () => {
           <NavLink to='/' className='mr-5'>
             <img src={ak47white} alt='logo' className='w-8 h-8' />
           </NavLink>
-          <NavLink to='/inventory' className='relative hover:bg-gray-500/30 px-3 py-2 rounded-lg transition-colors duration-300'>
+          <NavLink to='/searchInventory' className='relative hover:bg-gray-500/30 px-3 py-2 rounded-lg transition-colors duration-300'>
             {({ isActive }) => (
               <>
                 Inventory

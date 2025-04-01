@@ -21,7 +21,7 @@ const StickerGallery = ({ stickers }) => {
   return (
     <div className='flex items-end gap-3 mb-3'>
       {sticker.map((sticker, index) => (
-        <div key={index}>
+        <div key={index} className='cursor-pointer'>
           <img src={sticker.src} alt={sticker.title} title={sticker.title} className='w-10 hover:scale-200 transition-all duration-300' />
         </div>
       ))}
