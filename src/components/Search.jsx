@@ -4,7 +4,7 @@ import CustomCheckbox from "./Checkbox";
 const Search = ({ isLaptop }) => {
 
   return (
-    <div className='sticky top-0 w-full bg-gray-500/30 rounded-lg px-6 py-4 text-white shadow-md duration-300 overflow-hidden flex flex-col items-center'>
+    <div className='sticky top-30 w-full bg-gray-500/30 rounded-lg px-6 py-4 text-white shadow-md duration-300 overflow-hidden flex flex-col items-center'>
       {isLaptop &&
         <button type="button" data-drawer-hide="drawer-example" aria-controls="drawer-example" className="text-gray-400 bg-transparent rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 flex items-center justify-center hover:bg-gray-600 hover:text-white cursor-pointer" >
           <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">

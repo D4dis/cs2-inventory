@@ -62,7 +62,7 @@ const Inventory = ({ steamID = '76561198032730078'}) => {
       <h1 className='text-4xl font-bold text-white mb-10'>Blabla's Inventory</h1>
 
       <div className='flex w-full h-full gap-3'>
-        <div className={`w-1/5 z-40 h-full`} id="drawer-example" tabIndex="-1" aria-labelledby="drawer-label">
+        <div className={`w-1/5 z-40`} id="drawer-example" tabIndex="-1" aria-labelledby="drawer-label">
           <Search isLaptop={isLaptop} />
         </div>
         <div className="w-full lg:w-4/5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
