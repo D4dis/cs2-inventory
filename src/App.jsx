@@ -13,7 +13,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path='/searchInventory' element={<SearchUserInventory />} />
-          <Route path='/inventory/:steamId' element={<Inventory />} />
+          <Route path='/inventory/:steamID' element={<Inventory />} />
           <Route path='/tracker' element={<Tracker />} />
         </Routes>
       </Router>

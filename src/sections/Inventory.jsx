@@ -2,15 +2,18 @@ import React, { useEffect, useState, useRef } from 'react';
 import Search from '../components/Search';
 import { useMediaQuery } from 'react-responsive';
 import Card from '../components/Card';
+import { useParams } from 'react-router-dom';
 
 const CACHE_DURATION = 60 * 60 * 1000;
 
-const Inventory = ({ steamID = '76561198032730078'}) => {
+const Inventory = () => {
   const isLaptop = useMediaQuery({ maxWidth: 1400 });
   const [inventory, setInventory] = useState(null);
   const [showSearch, setShowSearch] = useState(false);
   const offcanvasRef = useRef(null);
   const searchButtonRef = useRef(null);
+
+  const { steamID } = useParams();
 
   const fetchInventory = async () => {
     const cachedInventories = JSON.parse(localStorage.getItem('inventories')) || {};
