@@ -1,13 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import ak47white from '../assets/ak47white.svg';
 
 const Navbar = () => {
   const [isConnected, setIsConnected] = useState(false);
-
-  const isActive2 = (path) => {
-    return location.pathname.startsWith(path) ? true : false;
-  };
 
   return (
     <header className='fixed container mx-auto py-4 px-4 top-0 left-0 right-0 z-100'>
@@ -17,31 +13,33 @@ const Navbar = () => {
             <img src={ak47white} alt='logo' className='w-8 h-8' />
           </NavLink>
           <NavLink to='/searchInventory' className='relative hover:bg-gray-500/30 px-3 py-2 rounded-lg transition-colors duration-300'>
-            <>
-              Inventory
-              {isActive2('/inventory/:steamID') || isActive2('/searchInventory') && (
-                <>
-                  <div className="nav-active"></div>
-                  <div
-                    className="absolute top-[50%] translate-x-[-50%] w-[40px] blur-[15px] opacity-[.9] transition-all duration-500 ease"
-                    style={{ left: "calc(50% - 65px)" }}
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="163" height="38" viewBox="0 0 163 38" fill="none">
-                      <g filter="url(#filter0_f_540_5466)">
-                        <ellipse cx="81.5" cy="38.5" rx="56.5" ry="13.5" fill="#237BFF"></ellipse>
-                      </g>
-                      <defs>
-                        <filter id="filter0_f_540_5466" x="0" y="0" width="163" height="77" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                          <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
-                          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
-                          <feGaussianBlur stdDeviation="12.5" result="effect1_foregroundBlur_540_5466"></feGaussianBlur>
-                        </filter>
-                      </defs>
-                    </svg>
-                  </div>
-                </>
-              )}
-            </>
+            {({ isActive }) => (
+              <>
+                Inventory
+                {isActive && (
+                  <>
+                    <div className="nav-active"></div>
+                    <div
+                      className="absolute top-[50%] translate-x-[-50%] w-[40px] blur-[15px] opacity-[.9] transition-all duration-500 ease"
+                      style={{ left: "calc(50% - 65px)" }}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="163" height="38" viewBox="0 0 163 38" fill="none">
+                        <g filter="url(#filter0_f_540_5466)">
+                          <ellipse cx="81.5" cy="38.5" rx="56.5" ry="13.5" fill="#237BFF"></ellipse>
+                        </g>
+                        <defs>
+                          <filter id="filter0_f_540_5466" x="0" y="0" width="163" height="77" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+                            <feGaussianBlur stdDeviation="12.5" result="effect1_foregroundBlur_540_5466"></feGaussianBlur>
+                          </filter>
+                        </defs>
+                      </svg>
+                    </div>
+                  </>
+                )}
+              </>
+            )}
           </NavLink>
           <NavLink to='/tracker' className='relative hover:bg-gray-500/30 px-3 py-2 rounded-lg transition-colors duration-300'>
             {({ isActive }) => (

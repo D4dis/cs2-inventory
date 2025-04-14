@@ -13,7 +13,7 @@ const Search = ({ isLaptop }) => {
           <span className="sr-only">Close menu</span>
         </button>
       }
-      <div className='mt-10 relative w-full'>
+      <div className='mt-5 relative w-full'>
         <i className="fa-solid fa-magnifying-glass absolute left-3 top-1/2 transform -translate-y-1/2 pb-1 text-white z-10"></i>
         <input
           type="text"

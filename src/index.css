@@ -25,6 +25,22 @@ body {
   --E4AE39: #E4AE39;
 }
 
+.btn-ping {
+  @apply animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75;
+}
+
+.btn-ping_dot {
+  @apply relative inline-flex rounded-full h-3 w-3 bg-green-500;
+}
+
+.btn-ping-off {
+  @apply animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-400 opacity-75;
+}
+
+.btn-ping-off_dot {
+  @apply relative inline-flex rounded-full h-3 w-3 bg-gray-500;
+}
+
 .container {
   max-width: 1700px;
   margin: 0 auto;
