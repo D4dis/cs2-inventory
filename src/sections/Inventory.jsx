@@ -93,23 +93,23 @@ const Inventory = () => {
     <section className='container mx-auto flex flex-col items-center justify-center pt-30 pb-10 px-4'>
       {profile && (
         <div className='flex justify-center items-center gap-10'>
+          <img src={profile.avatarfull} alt='avatar' className='w-32 h-32 mb-5 rounded-full' />
+
           <div className='flex flex-col'>
-            <img src={profile.avatarfull} alt='avatar' className='w-32 h-32 mb-5 rounded-full' />
-            <div className='bg-gray-500/30 rounded-full py-3 flex justify-center items-center mb-10'>
+            <h1 className='text-4xl font-bold text-white pb-3'><a href={profile.profilesteamurl} target='_blank' className='text-[#66c0f4] hover:text-[#66c0f4]/50 hover:underline underline-offset-4 transition-all duration-300'>{profile.personaname}</a>'s Inventory</h1>
+            <div className='w-50 bg-gray-500/30 rounded-full py-3 flex justify-center items-center mb-10'>
               <span className='relative flex h-3 w-3'>
                 <span className={`${profile.onlinestate === 'online' ? 'btn-ping' : 'btn-ping-off'}`}></span>
                 <span className={`${profile.onlinestate === 'online' ? 'btn-ping_dot' : 'btn-ping-off_dot'}`}></span>
               </span>
               <span className='ml-5 text-lg text-white capitalize'>{profile.onlinestate}</span>
             </div>
-
           </div>
-          <h1 className='text-4xl font-bold text-white pb-25'><a href={profile.profilesteamurl} target='_blank' className='text-[#66c0f4] hover:text-[#66c0f4]/50 hover:underline underline-offset-4 transition-all duration-300'>{profile.personaname}</a>'s Inventory</h1>
         </div>
       )}
 
       <div className='flex w-full h-full gap-3'>
-        <div className={`w-1/5 z-40`} id="drawer-example" tabIndex="-1" aria-labelledby="drawer-label">
+        <div className={`w-1/4 z-40`}>
           <Search isLaptop={isLaptop} />
         </div>
         <div className="w-full lg:w-4/5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
